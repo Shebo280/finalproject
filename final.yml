@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: final-deployment
+
+spec:
+  selector:
+    matchLabels:
+      label-1: Arafa
+      label-2: Shebo
+      label-3: Yazed
+      label-4: Ozo
+  replicas: 3 
+  template:
+    metadata:
+      name: final-pod
+      labels:
+        label-1: Arafa
+        label-2: Shebo
+        label-3: Yazed
+        label-4: Ozo
+    spec:
+      containers:   
+        - image: shebo280/finalprojectos2
+          name : first-container
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "1"     
